@@ -29,7 +29,7 @@ local Tab1 = TabBox:AddTab('Enemy ESP')
 local Tab2 = TabBox:AddTab('Advanced ESP')
 -- You can now call AddToggle, etc on the tabs you added to the Tabbox
 
-Tab1:AddLabel('MyToggle', {
+Tab1:AddToggle('MyToggle', {
     Text = 'NameTags',
     Default = false, -- Default value (true / false)
     Tooltip = 'Displays Players NameTags', -- Information shown when you hover over the toggle
@@ -90,9 +90,4 @@ Tab1:AddSlider('MySlider', {
     Rounding = 1,
 
     Compact = false, -- If set to true, then it will hide the label
-})
-
-Tab1:AddLabel('Color'):AddColorPicker('ColorPicker', {
-    Default = Color3.new(0, 1, 0), -- Bright green
-    Title = 'Loot ESP color', -- Optional. Allows you to have a custom color picker title (when you open it)
 })
