@@ -92,7 +92,7 @@ Tab1:AddSlider('MySlider', {
     Compact = false, -- If set to true, then it will hide the label
 })
 
-Tab1:AddToggle('Color'):AddColorPicker('ColorPicker', {
+Tab1:AddLabel('Color'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0), -- Bright green
     Title = 'Loot ESP color', -- Optional. Allows you to have a custom color picker title (when you open it)
 })
