@@ -323,3 +323,25 @@ tab5:AddToggle('MyToggle':AddColorPicker('ColorPicker'), {
     Default = Color3.new(0,1,0),
     Title = 'Change Color',
 })
+
+Tab5:AddToggle('MyToggle'),('Color Correction'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'Change color', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+Tab5:AddToggle('MyToggle', {
+    Text = 'Bloom',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Changes the bloom', -- Information shown when you hover over the toggle
+    ('Color Correction'):AddColorPicker('ColorPicker', {
+        Default = Color3.new(0, 1, 0), -- Bright green
+        Title = 'Change color',})
+})
+
+Tab5:AddToggle:AddColorPicker('MyToggle', {
+    Text = 'Bloom',
+    Default = false,
+    Tooltip = 'Changes the bloom',
+    Default = Color3.new(0,1,0),
+    Title = 'Change color'
+})
