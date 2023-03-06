@@ -71,23 +71,3 @@ Tab1:AddToggle('MyToggle', {
     Default = false, -- Default value (true / false)
     Tooltip = 'Shows all loot within the map', -- Information shown when you hover over the toggle
 })
-
-Tab1:AddSlider('MySlider', {
-    Text = 'Loot ESP Distance',
-
-    -- Text, Default, Min, Max, Rounding must be specified.
-    -- Rounding is the number of decimal places for precision.
-
-    -- Example:
-    -- Rounding 0 - 5
-    -- Rounding 1 - 5.1
-    -- Rounding 2 - 5.15
-    -- Rounding 3 - 5.155
-
-    Default = 0,
-    Min = 0,
-    Max = 5000,
-    Rounding = 1,
-
-    Compact = false, -- If set to true, then it will hide the label
-})
