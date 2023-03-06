@@ -71,3 +71,119 @@ Tab1:AddToggle('MyToggle', {
     Default = false, -- Default value (true / false)
     Tooltip = 'Shows all loot within the map', -- Information shown when you hover over the toggle
 })
+
+Tab1:AddSlider('MySlider', {
+Text = 'Loot ESP Distance',
+
+-- Text, Default, Min, Max, Rounding must be specified.
+-- Rounding is the number of decimal places for precision.
+
+-- Example:
+-- Rounding 0 - 5
+-- Rounding 1 - 5.1
+-- Rounding 2 - 5.15
+-- Rounding 3 - 5.155
+
+Default = 0,
+Min = 0,
+Max = 5000,
+Rounding = 1,
+
+Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab2:AddToggle('MyToggle', {
+    Text = 'Radar',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays Players loction on a radar box', -- Information shown when you hover over the toggle
+})
+
+local TabBox = Tabs.Visuals:AddLeftTabbox() -- Add Tabbox on left side
+local Tab3 = TabBox:AddTab('Local')
+local Tab4 = TabBox:AddTab('Enemy')
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+Tab3:AddToggle('MyToggle', {
+    Text = 'Gun Chams',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Puts out chams for your gun', -- Information shown when you hover over the toggle
+})
+
+Tab3:AddSlider('MySlider', {
+    Text = 'Gun Chams Transparency',
+    
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+    
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+    
+    Default = 0%,
+    Min = 0%,
+    Max = 100%,
+    Rounding = 1,
+    
+    Compact = false, -- If set to true, then it will hide the label
+    })
+
+Tab3:AddToggle('MyToggle', {
+    Text = 'Hand Chams',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Puts out chams for your playermodel', -- Information shown when you hover over the toggle
+})
+
+Tab3:AddSlider('MySlider', {
+    Text = 'Hand Chams Transparency',
+    
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+    
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+    
+    Default = 0%,
+    Min = 0%,
+    Max = 100%,
+    Rounding = 1,
+    
+    Compact = false, -- If set to true, then it will hide the label
+    })
+
+local DevLeftBox = Tabs.Visuals:AddRightGroupbox('Crosshair')
+
+DevLeftBox:AddToggle('MyToggle', {
+    Text = 'Enable Crosshair',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Enables a Crosshair onto your screen', -- Information shown when you hover over the toggle
+})
+
+DevLeftBox:AddLabel('Enable Crosshair'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'Crosshair Color', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+DevLeftBox:AddSlider('MySlider', {
+    Text = 'Crosshair Size!',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0px,
+    Min = 0px,
+    Max = 100px,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
