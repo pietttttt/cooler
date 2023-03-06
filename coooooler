@@ -121,7 +121,7 @@ Tab3:AddSlider('MySlider', {
     -- Rounding 2 - 5.15
     -- Rounding 3 - 5.155
     
-    Default = 0%,
+    Default = 0,
     Min = 0%,
     Max = 100%,
     Rounding = 1,
@@ -169,7 +169,7 @@ DevLeftBox:AddLabel('Enable Crosshair'):AddColorPicker('ColorPicker', {
 })
 
 DevLeftBox:AddSlider('MySlider', {
-    Text = 'Crosshair Size!',
+    Text = 'Crosshair Size',
 
     -- Text, Default, Min, Max, Rounding must be specified.
     -- Rounding is the number of decimal places for precision.
@@ -180,7 +180,7 @@ DevLeftBox:AddSlider('MySlider', {
     -- Rounding 2 - 5.15
     -- Rounding 3 - 5.155
 
-    Default = 0px,
+    Default = 0,
     Min = 0px,
     Max = 100px,
     Rounding = 0,
