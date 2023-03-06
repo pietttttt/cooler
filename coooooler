@@ -304,3 +304,22 @@ Tab5:AddSlider('MySlider', {
 
     Compact = false, -- If set to true, then it will hide the label
 })
+
+Tab5:AddLabel('Color Correction'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'Change color', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+Tab5:AddToggle('MyToggle', {
+    Text = 'Bloom',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Changes the bloom', -- Information shown when you hover over the toggle
+})
+
+tab5:AddToggle('MyToggle':AddColorPicker('ColorPicker'), {
+    Title = 'Bloom',
+    Default = false,
+    Tooltip = 'Changes the bloom', 
+    Default = Color3.new(0,1,0),
+    Title = 'Change Color',
+})
