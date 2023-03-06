@@ -21,6 +21,7 @@ local Tabs = {
     ['Visuals'] = Window:AddTab("Visuals"), 
     ['Rage'] = Window:AddTab('Rage'),
     ['Miscellaneous'] = Window:AddTab('Miscellaneous'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
 }
 
 
@@ -148,8 +149,8 @@ Tab3:AddSlider('MySlider', {
     -- Rounding 3 - 5.155
     
     Default = 0%,
-    Min = 0%,
-    Max = 100%,
+    Min = 0,
+    Max = 100,
     Rounding = 1,
     
     Compact = false, -- If set to true, then it will hide the label
@@ -181,8 +182,8 @@ DevLeftBox:AddSlider('MySlider', {
     -- Rounding 3 - 5.155
 
     Default = 0,
-    Min = 0px,
-    Max = 100px,
+    Min = 0,
+    Max = 100,
     Rounding = 0,
 
     Compact = false, -- If set to true, then it will hide the label
