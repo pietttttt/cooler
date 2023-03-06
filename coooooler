@@ -29,7 +29,7 @@ local Tab1 = TabBox:AddTab('Enemy ESP')
 local Tab2 = TabBox:AddTab('Advanced ESP')
 -- You can now call AddToggle, etc on the tabs you added to the Tabbox
 
-Tab1:AddToggle('MyToggle', {
+Tab1:AddLabel('MyToggle', {
     Text = 'NameTags',
     Default = false, -- Default value (true / false)
     Tooltip = 'Displays Players NameTags', -- Information shown when you hover over the toggle
