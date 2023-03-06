@@ -123,8 +123,8 @@ Tab3:AddSlider('MySlider', {
     -- Rounding 3 - 5.155
     
     Default = 0,
-    Min = 0%,
-    Max = 100%,
+    Min = 0,
+    Max = 100,
     Rounding = 1,
     
     Compact = false, -- If set to true, then it will hide the label
@@ -148,7 +148,7 @@ Tab3:AddSlider('MySlider', {
     -- Rounding 2 - 5.15
     -- Rounding 3 - 5.155
     
-    Default = 0%,
+    Default = 0,
     Min = 0,
     Max = 100,
     Rounding = 1,
