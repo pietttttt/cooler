@@ -164,7 +164,7 @@ DevLeftBox:AddToggle('MyToggle', {
     Tooltip = 'Enables a Crosshair onto your screen', -- Information shown when you hover over the toggle
 })
 
-DevLeftBox:AddToggle('Enable Crosshair'):AddColorPicker('ColorPicker', {
+DevLeftBox:AddLabel('Enable Crosshair'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0), -- Bright green
     Title = 'Crosshair Color', -- Optional. Allows you to have a custom color picker title (when you open it)
 })
@@ -194,7 +194,7 @@ local Tab5 = TabBox:AddTab('Render')
 local Tab6 = TabBox:AddTab('World')
 -- You can now call AddToggle, etc on the tabs you added to the Tabbox
 
-Tab5:AddToggle('Color Correction'):AddColorPicker('ColorPicker', {
+Tab5:AddLabel('Color Correction'):AddColorPicker('ColorPicker', {
     Default = Color3.new(0, 1, 0), -- Bright green
     Title = 'Change color', -- Optional. Allows you to have a custom color picker title (when you open it)
 })
