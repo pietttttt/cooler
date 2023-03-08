@@ -1,9 +1,7 @@
 local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
-
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
 local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
-
 local Window = Library:CreateWindow({
     -- Set Center to true if you want the menu to appear in the center
     -- Set AutoShow to true if you want the menu to appear when it is created
@@ -456,15 +454,3 @@ Tab8:AddToggle('MyToggle', {
 })
 
 local MiscRightBox = Tabs.Miscellaneous:AddRightGroupbox('TESTING')
-
-MiscRightBox:AddLabel('Color'):AddColorPicker('ColorPicker', {
-    Default = Color3.new(0, 1, 0), -- Bright green
-    Title = 'What could this be?', -- Optional. Allows you to have a custom color picker title (when you open it)
-})
-
-Options.ColorPicker:OnChanged(function()
-    print('Color changed!', Options.ColorPicker.Value)
-end)
-
-Options.ColorPicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
-
