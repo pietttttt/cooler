@@ -322,15 +322,6 @@ LegitRightBox:AddToggle('MyToggle', {
     Tooltip = 'Enables "legit" style aimbot', -- Information shown when you hover over the toggle
 })
 
-LegitRightBox:AddDropdown('MyDropdown', {
-    Values = { 'This', 'is', 'a', 'dropdown' },
-    Default = 1, -- number index of the value / string
-    Multi = false, -- true / false, allows multiple choices to be selected
-
-    Text = 'Select Aimbone',
-    Tooltip = 'Selects aimbone to target', -- Information shown when you hover over the textbox
-})
-
 local LegitRightBox2 = Tabs.Legit:AddLeftGroupbox('Misc')
 
 LegitRightBox2:AddToggle('MyToggle', {
@@ -374,15 +365,6 @@ Tab7:AddSlider('MySlider', {
     Rounding = 1,
 
     Compact = false, -- If set to true, then it will hide the label
-})
-
-Tab7:AddDropdown('MyDropdown', {
-    Values = { 'This', 'is', 'a', 'dropdown' },
-    Default = 1, -- number index of the value / string
-    Multi = false, -- true / false, allows multiple choices to be selected
-
-    Text = 'Select Aimbone',
-    Tooltip = 'Selects aimbone to target', -- Information shown when you hover over the textbox
 })
 
 Tab8:AddToggle('MyToggle', {
@@ -446,5 +428,3 @@ Tab8:AddToggle('MyToggle', {
     Default = false,
     Tooltip = 'Become a fish'
 })
-
-local MiscRightBox = Tabs.Miscellaneous:AddRightGroupbox('TESTING')
