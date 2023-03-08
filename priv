@@ -1,0 +1,486 @@
+local repo = 'https://raw.githubusercontent.com/wally-rblx/LinoriaLib/main/'
+
+local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
+local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
+local SaveManager = loadstring(game:HttpGet(repo .. 'addons/SaveManager.lua'))()
+
+local Window = Library:CreateWindow({
+    -- Set Center to true if you want the menu to appear in the center
+    -- Set AutoShow to true if you want the menu to appear when it is created
+    -- Position and Size are also valid options here
+    -- but you do not need to define them unless you are changing them :)
+
+    Title = 'Pie Solutions',
+    Center = true, 
+    AutoShow = true,
+})
+
+local Tabs = {
+    -- Creates a new tab titled Main yadada
+    Legit = Window:AddTab('Legit'), 
+    ['Visuals'] = Window:AddTab("Visuals"), 
+    ['Rage'] = Window:AddTab('Rage'),
+    ['Miscellaneous'] = Window:AddTab('Miscellaneous'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
+}
+
+
+local TabBox = Tabs.Visuals:AddLeftTabbox() -- Add Tabbox on left side
+local Tab1 = TabBox:AddTab('Enemy ESP')
+local Tab2 = TabBox:AddTab('Advanced ESP')
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'NameTags',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays Players NameTags', -- Information shown when you hover over the toggle
+})
+
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'Display Distance',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays Players Distance to your current position', -- Information shown when you hover over the toggle
+})
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'Bounding Box + Health Bar',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays Players Health and puts a bounding box on the player', -- Information shown when you hover over the toggle
+})
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'Tracers',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays tracer lines originating from your viewport to the players torso', -- Information shown when you hover over the toggle
+})
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'Bullet Tracers',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Draws tracer lines from your last fired bullet', -- Information shown when you hover over the toggle
+})
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'Barrel Tracer',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays barrel tracer originating from the barrel..', -- Information shown when you hover over the toggle
+})
+
+Tab1:AddToggle('MyToggle', {
+    Text = 'Loot ESP',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Shows all loot within the map', -- Information shown when you hover over the toggle
+})
+
+Tab1:AddSlider('MySlider', {
+Text = 'Loot ESP Distance',
+
+-- Text, Default, Min, Max, Rounding must be specified.
+-- Rounding is the number of decimal places for precision.
+
+-- Example:
+-- Rounding 0 - 5
+-- Rounding 1 - 5.1
+-- Rounding 2 - 5.15
+-- Rounding 3 - 5.155
+
+Default = 0,
+Min = 0,
+Max = 5000,
+Rounding = 1,
+
+Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab2:AddToggle('MyToggle', {
+    Text = 'Radar',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Displays Players loction on a radar box', -- Information shown when you hover over the toggle
+})
+
+local TabBox = Tabs.Visuals:AddLeftTabbox() -- Add Tabbox on left side
+local Tab3 = TabBox:AddTab('Local')
+local Tab4 = TabBox:AddTab('Enemy')
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+Tab3:AddToggle('MyToggle', {
+    Text = 'Gun Chams',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Puts out chams for your gun', -- Information shown when you hover over the toggle
+})
+
+Tab3:AddSlider('MySlider', {
+    Text = 'Gun Chams Transparency',
+    
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+    
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+    
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 1,
+    
+    Compact = false, -- If set to true, then it will hide the label
+    })
+
+Tab3:AddToggle('MyToggle', {
+    Text = 'Hand Chams',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Puts out chams for your playermodel', -- Information shown when you hover over the toggle
+})
+
+Tab3:AddSlider('MySlider', {
+    Text = 'Hand Chams Transparency',
+    
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+    
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+    
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 1,
+    
+    Compact = false, -- If set to true, then it will hide the label
+    })
+
+local DevLeftBox = Tabs.Visuals:AddRightGroupbox('Crosshair')
+
+DevLeftBox:AddToggle('MyToggle', {
+    Text = 'Enable Crosshair',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Enables a Crosshair onto your screen', -- Information shown when you hover over the toggle
+})
+
+DevLeftBox:AddLabel('Enable Crosshair'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'Crosshair Color', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+DevLeftBox:AddSlider('MySlider', {
+    Text = 'Crosshair Size',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+local TabBox = Tabs.Visuals:AddRightTabbox() -- Add Tabbox on right side
+local Tab5 = TabBox:AddTab('Render')
+local Tab6 = TabBox:AddTab('World')
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+Tab5:AddLabel('Color Correction'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'Change color', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+Tab5:AddSlider('MySlider', {
+    Text = 'Brightness',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab5:AddSlider('MySlider', {
+    Text = 'Contrast',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab5:AddToggle('MyToggle', {
+    Text = 'Bloom',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Changes the bloom', -- Information shown when you hover over the toggle
+})
+
+Tab5:AddSlider('MySlider', {
+    Text = 'Intensity',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab5:AddSlider('MySlider', {
+    Text = 'Size',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab5:AddSlider('MySlider', {
+    Text = 'Threshold',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 100,
+    Rounding = 0,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+local LegitRightBox = Tabs.Legit:AddLeftGroupbox('Aimbot')
+
+LegitRightBox:AddToggle('MyToggle', {
+    Text = 'Internal Aimbot',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Toggles legit style aimbot', -- Information shown when you hover over the toggle
+})
+
+LegitRightBox:AddDropdown('MyDropdown', {
+    Values = { 'Head', 'Thorax', 'Left Arm', 'Right Arm', 'Left Leg', 'Right leg' },
+    Default = 1, -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Aimbone',
+    Tooltip = 'idk its in the name', -- Information shown when you hover over the textbox
+})
+
+LegitRightBox:AddSlider('MySlider', {
+    Text = 'Internal Aimbot FOV',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 180,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+local LegitRightBox2 = Tabs.Legit:AddLeftGroupbox('Misc')
+
+LegitRightBox2:AddToggle('MyToggle', {
+    Text = 'Loot through walls',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'read the title dummy', -- Information shown when you hover over the toggle
+})
+
+LegitRightBox2:AddToggle('MyToggle', {
+    Text = 'Ammo Counter',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'read the title dummy', -- Information shown when you hover over the toggle
+})
+
+local RageBox = Tabs.Rage:AddLeftGroupbox('Silent Aim')
+
+RageBox:AddToggle('MyToggle', {
+    Text = 'Silent Aim',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Toggles cool style aimbot', -- Information shown when you hover over the toggle
+})
+
+RageBox:AddDropdown('MyDropdown', {
+    Values = { 'Head', 'Thorax', 'Left Arm', 'Right Arm', 'Left Leg', 'Right leg' },
+    Default = 1, -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Aimbone',
+    Tooltip = 'idk its in the name', -- Information shown when you hover over the textbox
+})
+
+RageBox:AddSlider('MySlider', {
+    Text = 'Silent Aim FOV',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 180,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+local RageBox2 = Tabs.Rage:AddRightGroupbox('Cool stuff')
+
+RageBox2:AddToggle('MyToggle', {
+    Text = 'Manipulation',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Manipulates the fireport', -- Information shown when you hover over the toggle
+})
+
+RageBox2:AddToggle('MyToggle', {
+    Text = 'Speed hack',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Toggles cool running', -- Information shown when you hover over the toggle
+})
+
+RageBox:AddSlider('MySlider', {
+    Text = 'Speed hack scale (1-30x)',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 30,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+RageBox2:AddToggle('MyToggle', {
+    Text = 'Auto shoot',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'in the name', -- Information shown when you hover over the toggle
+})
+
+RageBox2:AddToggle('MyToggle', {
+    Text = 'Auto leave when mod joins',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Leaves the game once someone with admin perms joins', -- Information shown when you hover over the toggle
+})
+
+RageBox2:AddToggle('MyToggle', {
+    Text = 'Magic Bullet',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Have a cool skybox redirect feature', -- Information shown when you hover over the toggle
+})
+
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+-- I set NoUI so it does not show up in the keybinds menu
+MenuGroup:AddButton('Unload', function() Library:Unload() end) 
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'Insert', NoUI = true, Text = 'Menu keybind' }) 
+
+Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- ThemeManager (Allows you to have a menu theme system)
+
+-- Hand the library over to our managers
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+-- Ignore keys that are used by ThemeManager. 
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings() 
+
+-- Adds our MenuKeybind to the ignore list 
+-- (do you want each config to have a different menu key? probably not.)
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+
+-- use case for doing it this way: 
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+ThemeManager:SetFolder('MyScriptHub')
+SaveManager:SetFolder('MyScriptHub/specific-game')
+
+-- Builds our config menu on the right side of our tab
+SaveManager:BuildConfigSection(Tabs['UI Settings']) 
+
+-- Builds our theme menu (with plenty of built in themes) on the left side
+-- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config 
+-- which has been marked to be one that auto loads!
