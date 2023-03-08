@@ -316,32 +316,187 @@ Tab5:AddToggle('MyToggle', {
     Tooltip = 'Changes the bloom', -- Information shown when you hover over the toggle
 })
 
-tab5:AddToggle('MyToggle':AddColorPicker('ColorPicker'), {
-    Title = 'Bloom',
-    Default = false,
-    Tooltip = 'Changes the bloom', 
-    Default = Color3.new(0,1,0),
-    Title = 'Change Color',
-})
-
-Tab5:AddToggle('MyToggle'),('Color Correction'):AddColorPicker('ColorPicker', {
-    Default = Color3.new(0, 1, 0), -- Bright green
-    Title = 'Change color', -- Optional. Allows you to have a custom color picker title (when you open it)
-})
-
-Tab5:AddToggle('MyToggle', {
-    Text = 'Bloom',
-    Default = false, -- Default value (true / false)
-    Tooltip = 'Changes the bloom', -- Information shown when you hover over the toggle
-    ('Color Correction'):AddColorPicker('ColorPicker', {
-        Default = Color3.new(0, 1, 0), -- Bright green
-        Title = 'Change color',})
-})
-
 Tab5:AddToggle:AddColorPicker('MyToggle', {
-    Text = 'Bloom',
-    Default = false,
-    Tooltip = 'Changes the bloom',
-    Default = Color3.new(0,1,0),
+    Default = Color3.new(0,1,0)
     Title = 'Change color'
+    Default = false,
 })
+
+local LegitRightBox = Tabs.Legit:AddLeftGroupbox('Aimbot')
+
+LegitRightBox:AddToggle('MyToggle', {
+    Text = 'Enable internal aim',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Enables "legit" style aimbot', -- Information shown when you hover over the toggle
+})
+
+LegitRightBox:AddDropdown('MyDropdown', {
+    Values = { 'This', 'is', 'a', 'dropdown' },
+    Default = 1, -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Aimbone',
+    Tooltip = 'Selects aimbone to target', -- Information shown when you hover over the textbox
+})
+
+local LegitRightBox2 = Tabs.Legit:AddLeftGroupbox('Misc')
+
+LegitRightBox2:AddToggle('MyToggle', {
+    Text = 'Ammo Counter',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Shows you the amount of ammunition within your gun', -- Information shown when you hover over the toggle
+})
+
+LegitRightBox2:AddToggle('MyToggle', {
+    Text = 'Loot through walls',
+    Default = false, -- Default value (true / false)
+    Tooltip = 'Allows you to yknow.. loot through walls', -- Information shown when you hover over the toggle
+})
+
+local TabBox = Tabs.Rage:AddLeftTabbox() -- Add Tabbox on left side
+local Tab7 = TabBox:AddTab('Silent aim')
+local Tab8 = TabBox:AddTab('Cool stuff')
+-- You can now call AddToggle, etc on the tabs you added to the Tabbox
+
+Tab7:AddToggle('MyToggle', {
+    Text = 'Toggle Silent Aim'
+    Default = false,
+    Tooltip = 'Toggles yknow.. Silent Aim'
+})
+
+Tab7:AddSlider('MySlider', {
+    Text = 'Silent Aim FOV',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 180,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab7:AddDropdown('MyDropdown', {
+    Values = { 'This', 'is', 'a', 'dropdown' },
+    Default = 1, -- number index of the value / string
+    Multi = false, -- true / false, allows multiple choices to be selected
+
+    Text = 'Select Aimbone',
+    Tooltip = 'Selects aimbone to target', -- Information shown when you hover over the textbox
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'Manipulation'
+    Default = false,
+    Tooltip = 'Manipulate the fireport'
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'Magic Bullet'
+    Default = false,
+    Tooltip = 'Toggles skybox redirect'
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'Gun mod'
+    Default = false,
+    Tooltip = 'Make your gun better'
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'Flyhack'
+    Default = false,
+    Tooltip = 'Fly!'
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'FE admin commands (Works for some games)'
+    Default = false,
+    Tooltip = 'Get admin commands'
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'Toggle Speed Hack'
+    Default = false,
+    Tooltip = 'Become fast'
+})
+
+Tab8:AddSlider('MySlider', {
+    Text = 'Speed hack multiplier',
+
+    -- Text, Default, Min, Max, Rounding must be specified.
+    -- Rounding is the number of decimal places for precision.
+
+    -- Example:
+    -- Rounding 0 - 5
+    -- Rounding 1 - 5.1
+    -- Rounding 2 - 5.15
+    -- Rounding 3 - 5.155
+
+    Default = 0,
+    Min = 0,
+    Max = 30,
+    Rounding = 1,
+
+    Compact = false, -- If set to true, then it will hide the label
+})
+
+Tab8:AddToggle('MyToggle', {
+    Text = 'Resolver'
+    Default = false,
+    Tooltip = 'Become a fish'
+})
+
+local MiscRightBox = Tabs.Miscellaneous:AddRightGroupbox('TESTING')
+
+MiscRightBox:AddLabel('Color'):AddColorPicker('ColorPicker', {
+    Default = Color3.new(0, 1, 0), -- Bright green
+    Title = 'What could this be?', -- Optional. Allows you to have a custom color picker title (when you open it)
+})
+
+Options.ColorPicker:OnChanged(function()
+    print('Color changed!', Options.ColorPicker.Value)
+end)
+
+Options.ColorPicker:SetValueRGB(Color3.fromRGB(0, 255, 140))
+
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
+
+MenuGroup:AddButton('Unload', function() Library:Unload() end) 
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'Insert', NoUI = true, Text = 'Menu keybind' }) 
+
+Library.ToggleKeybind = Options.MenuKeybind -- Allows you to have a custom keybind for the menu
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- ThemeManager (Allows you to have a menu theme system)
+
+-- Hand the library over to our managers
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+
+-- Ignore keys that are used by ThemeManager. 
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings() 
+
+-- Adds our MenuKeybind to the ignore list 
+-- (do you want each config to have a different menu key? probably not.)
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' })
+
+-- Builds our config menu on the right side of our tab
+SaveManager:BuildConfigSection(Tabs['UI Settings'])
+
+-- Builds our theme menu (with plenty of built in themes) on the left side
+-- NOTE: you can also call ThemeManager:ApplyToGroupbox to add it to a specific groupbox
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config 
+-- which has been marked to be one that auto loads!
