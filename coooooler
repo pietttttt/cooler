@@ -314,12 +314,6 @@ Tab5:AddToggle('MyToggle', {
     Tooltip = 'Changes the bloom', -- Information shown when you hover over the toggle
 })
 
-Tab5:AddToggle:AddColorPicker('MyToggle', {
-    Default = Color3.new(0,1,0)
-    Title = 'Change color'
-    Default = false,
-})
-
 local LegitRightBox = Tabs.Legit:AddLeftGroupbox('Aimbot')
 
 LegitRightBox:AddToggle('MyToggle', {
